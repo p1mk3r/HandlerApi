@@ -1,30 +1,6 @@
-using FluentValidation;
-using HandlerApi.DTO;
-using HandlerApi.Validators;
+using HandlerApi.Settings;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IValidator<Message>, MessageValidator>();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+var builder = WebApplication.CreateBuilder(args).ConfigureServices();
+var app = builder.Build().ConfigureApp();
 
 app.Run();

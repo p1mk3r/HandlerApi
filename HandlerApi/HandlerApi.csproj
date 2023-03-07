@@ -8,6 +8,8 @@
 
     <ItemGroup>
         <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+        <PackageReference Include="MediatR" Version="12.0.1" />
+        <PackageReference Include="PostSharp.Patterns.Diagnostics.Microsoft" Version="2023.0.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
