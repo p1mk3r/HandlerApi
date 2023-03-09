@@ -1,21 +1,23 @@
 using HandlerApi.DTO;
 using HandlerApi.Handlers;
 using HandlerApi.Requests;
-using MediatR;
 
 namespace HandlerApi;
 
 public static class MessageParser
 {
-    public static IRequest CreateRequestByMessageName(Message message)
+    public static Request CreateRequestByMessageName(Message message) 
     {
         switch (message.Name.ToLower())
         {
             case string str when str.Equals(SupportedHandlers.ReverseWords.ToString(), StringComparison.InvariantCultureIgnoreCase):
-                return new ReverseWordsRequest { ValueToReverse = message.Value };
+                return new ReverseWordsRequest { Value = message.Value };
             
             case string str when str.Equals(SupportedHandlers.WordsCount.ToString(), StringComparison.InvariantCultureIgnoreCase):
-                return new WordsCountRequest { Words = message.Value };
+                return new WordsCountRequest { Value = message.Value };          
+            
+            case string str when str.Equals(SupportedHandlers.TwoDigitsSum.ToString(), StringComparison.InvariantCultureIgnoreCase):
+                return new TwoDigitsSumRequest { Value = message.Value };
 
             default:
                 throw new NotImplementedException($"Сообщение '{message.Name}' не поддерживается");

@@ -1,8 +1,6 @@
 namespace HandlerApi.Response;
 
-public class ReverseWordsResponse
+public class ReverseWordsResponse : Response
 {
     public string ReversedString { get; set; }
-
-    public DateTime CreatedDateTime { get; set; }
 }

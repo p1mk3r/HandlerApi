@@ -1,8 +1,6 @@
 namespace HandlerApi.Response;
 
-public class TwoDigitsSumResponse
+public class TwoDigitsSumResponse : Response
 {
     public int Sum { get; set; }
-
-    public DateTime CreatedDateTime { get; set; }
 }

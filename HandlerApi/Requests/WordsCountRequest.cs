@@ -3,7 +3,6 @@ using MediatR;
 
 namespace HandlerApi.Requests;
 
-public class WordsCountRequest : IRequest<WordsCountResponse>
+public class WordsCountRequest : Request, IRequest<WordsCountResponse>
 {
-    public string Words { get; set; }
 }
